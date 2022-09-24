@@ -2,6 +2,11 @@
   <div class="application-main">
     <main>
         {{- partial "menu" . -}}
+      <div class="container-xl px-3 px-md-4 px-lg-5">
+        <div class="Layout Layout--flowRow-until-md Layout--sidebarPosition-start Layout--sidebarPosition-flowRow-start">
+            {{- partial "user-profile" . -}}
+        </div>
+      </div>
     </main>
   </div>
 {{ end }}
