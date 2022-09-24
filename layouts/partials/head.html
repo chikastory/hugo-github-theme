@@ -1,0 +1,21 @@
+{{ define "head" }}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{- block "title" . }}{{ .Site.Title }}{{- end }}</title>
+    {{ if .Site.Params.favicon }}
+      <link rel="icon" type="image/x-icon" href='{{ .Site.Params.Favicon  }}'>
+    {{ else if .Site.Params.Profile.Email }}
+      <link rel="icon" type="image/x-icon" href='https://www.gravatar.com/avatar/{{ md5 ( lower ( trim .Site.Params.Profile.Email " " ) ) }}?d=retro&s=32'>
+    {{ else }}
+      <link rel="icon" type="image/x-icon" href='https://www.gravatar.com/avatar/{{ md5 ( lower ( trim .Site.BaseURL " " ) ) }}?d=retro&s=32'>
+    {{ end }}
+  <link href="{{ "css/light.min.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/dark.min.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/primer.min.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/global.min.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/github.min.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/profile.min.css" | relURL }}" rel="stylesheet">
+  <script src="https://unpkg.com/jquery/dist/jquery.js"></script>
+</head>
+{{ end }}
